@@ -13,9 +13,13 @@
     </head>
     <body>
         <h1>SmartHome Thermostat</h1
-        <form action="ThermostatCTL" method="post">
-            <input type="submit" id="incTemp" name="turnUpTemperature" value="Increase Temperature"><br>
-            <input type="submit" id="decTemp" name="turnDownTemperature" value="Decrease Temperature">
-        </form>
+            <label for="thermostat">Current Temperature:</label>
+            <!-- Rahul R.
+                 Version N/A
+                 09/21/2013
+                 https://stackoverflow.com/questions/10004723/html5-input-type-range-show-range-value
+            -->
+            <input type="range" id="thermostat" value="temperature" min="32" max="100" oninput="this.nextElementSibling.value = this.value">
+            <output></output>
     </body>
 </html>
