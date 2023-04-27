@@ -11,32 +11,32 @@ import java.io.Serializable;
  */
 public class Thermostat implements Serializable {
     private int temperature = 68;
-    private boolean lockTemperature = false;
     
     public int getTemperature() {
         return temperature;
     }
     
-    public void setTemperature(int temperature) {
-        if (lockTemperature = false)
-            this.temperature = temperature;
+
+    public boolean turnUpTemperature(String temperature) {
+        if (this.temperature == 100) {
+            return false;
+        }
+        this.temperature = this.temperature + 1;
+        return true;
     }
     
-    public void turnUpTemperature() {
-        if (lockTemperature = false)
-            this.temperature = temperature + 1;
+    public boolean turnDownTemperature(String temperature) {
+        if (this.temperature == 32) {
+            return false;
+        }
+        this.temperature = this.temperature - 1;
+        return true;
     }
     
-    public void turnDownTemperature() {
-        if (lockTemperature = false)
-            this.temperature = temperature - 1;
-    }
+
     
-    public void lockTemperature() {
-        this.lockTemperature = true;
-    }
-    
-    public void unlockTemperature() {
-        this.lockTemperature = false;
+    public static void main(String[] args) {
+        Thermostat thermostat = new Thermostat();
+        System.out.println(thermostat.getTemperature());
     }
 }

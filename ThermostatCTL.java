@@ -65,9 +65,10 @@ public class ThermostatCTL extends HttpServlet {
             throws ServletException, IOException {
         // processRequest(request, response);
         Thermostat thermostat = new Thermostat();
-        request.setAttribute("temperature", thermostat);
+        int currentTemperature = thermostat.getTemperature();
+        request.setAttribute("temperature", currentTemperature);
         RequestDispatcher rd = request.getRequestDispatcher("thermostat.jsp");
-        
+        rd.forward(request, response);
     }
 
     /**
@@ -81,7 +82,18 @@ public class ThermostatCTL extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        // processRequest(request, response);
+        Thermostat thermostat = new Thermostat();
+        String currentTemperature;
+        currentTemperature = request.getParameter("temperature");
+        boolean validate = thermostat.turnUpTemperature("currentTemperature");
+        boolean validates = thermostat.turnDownTemperature("currentTemperature)");
+        if (validate || validates) {
+            currentTemperature = request.getParameter("temperature");
+                response.equals(currentTemperature);
+        } else {
+            response.reset();
+        }
     }
 
     /**

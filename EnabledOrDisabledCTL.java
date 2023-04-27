@@ -76,7 +76,10 @@ public class EnabledOrDisabledCTL extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        // processRequest(request, response);
+        String current;
+        current = request.getParameter("enabledSmartHomeS");
+        EnabledOrDisabled onOrOff = new EnabledOrDisabled();
     }
 
     /**
