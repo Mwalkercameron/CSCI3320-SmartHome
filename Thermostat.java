@@ -11,28 +11,20 @@ import java.io.Serializable;
  */
 public class Thermostat implements Serializable {
     private int temperature = 68;
+    private int minimumTemperature = 32;
+    private int maximumTemperature = 100;
     
     public int getTemperature() {
-        return temperature;
+        return this.temperature;
     }
     
-
-    public boolean turnUpTemperature(String temperature) {
-        if (this.temperature == 100) {
+    public boolean adjustThermostat(String temperature) {
+        if (Integer.parseInt(temperature) < minimumTemperature || Integer.parseInt(temperature) > maximumTemperature) {
             return false;
         }
-        this.temperature = this.temperature + 1;
+        this.temperature = Integer.parseInt(temperature);
         return true;
     }
-    
-    public boolean turnDownTemperature(String temperature) {
-        if (this.temperature == 32) {
-            return false;
-        }
-        this.temperature = this.temperature - 1;
-        return true;
-    }
-    
 
     
     public static void main(String[] args) {

@@ -4,6 +4,7 @@
     Author     : Whoslala
 --%>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -12,14 +13,16 @@
         <title>thermostat</title>
     </head>
     <body>
-        <h1>SmartHome Thermostat</h1
-            <label for="thermostat">Current Temperature:</label>
-            <!-- Rahul R.
+        <h1>SmartHome Thermostat</h1>
+        <form action="ThermostatCTL" method="post">
+            <div id="thermostat">Current Temperature:</div>
+            <!-- W3Schools
                  Version N/A
-                 09/21/2013
-                 https://stackoverflow.com/questions/10004723/html5-input-type-range-show-range-value
+                 N/A
+                 https://www.w3schools.com/html/html_form_input_types.asp
             -->
-            <input type="range" id="thermostat" value="temperature" min="32" max="100" oninput="this.nextElementSibling.value = this.value">
-            <output></output>
+            <input type="number" name="temperature" id="thermostat">
+            <input type="submit" value="Adjust Thermostat">
+        </form>
     </body>
 </html>
